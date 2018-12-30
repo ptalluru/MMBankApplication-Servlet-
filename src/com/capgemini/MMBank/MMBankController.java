@@ -30,9 +30,6 @@ public class MMBankController extends HttpServlet {
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection connection = DriverManager.getConnection
 						("jdbc:mysql://localhost:3306/bankapp_db", "root", "root");
-				PreparedStatement preparedStatement = 
-						connection.prepareStatement("DELETE FROM ACCOUNT");
-				preparedStatement.execute();
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {
@@ -58,6 +55,7 @@ public class MMBankController extends HttpServlet {
 					boolean salary = request.getParameter("rdSal").equalsIgnoreCase("no")?false:true;
 					try {
 						savingsAccountService.createNewAccount(name, amount, salary);
+						response.sendRedirect("index.html");
 					} catch (ClassNotFoundException | SQLException e) {
 					e.printStackTrace();
 					}
@@ -69,6 +67,7 @@ public class MMBankController extends HttpServlet {
 					int accountid = Integer.parseInt(request.getParameter("closeAcc"));
 					try {
 						savingsAccountService.deleteAccount(accountid);
+						response.sendRedirect("index.html");
 					} catch (ClassNotFoundException | SQLException| AccountNotFoundException e) {
 					e.printStackTrace();
 					}
@@ -91,6 +90,7 @@ public class MMBankController extends HttpServlet {
 					}
 					try {
 						DBUtil.commit();
+						response.sendRedirect("index.html");
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -113,6 +113,7 @@ public class MMBankController extends HttpServlet {
 				}
 				try {
 					DBUtil.commit();
+					response.sendRedirect("index.html");
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -139,7 +140,7 @@ public class MMBankController extends HttpServlet {
 				try {
 					savingsAccountService.fundTransfer(sendersSavingsAccount, receiversSavingsAccount, transferAmount);
 					//DBUtil.commit();
-	
+					response.sendRedirect("index.html");
 				} catch (ClassNotFoundException | SQLException e) {
 					e.printStackTrace();
 				}
@@ -152,7 +153,7 @@ public class MMBankController extends HttpServlet {
 					int accountnum = Integer.parseInt(request.getParameter("currentBal"));
 				try {
 					double currentBalance = savingsAccountService.checkBalance(accountnum);
-					out.println("<h1>****Money Money Bank****</h1>\n"
+					out.println("<h1>****HDFC Bank****</h1>\n"
 							+ "<b>Your Current Balance is : <b>"+currentBalance);
 				} catch (ClassNotFoundException | SQLException
 						| AccountNotFoundException e) {
