@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AddNewAccount</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body style="overflow: hidden;">
         <header>
                <h1 class="topright" style="font-size:80px;line-height:23px">HDFC BANK</h1>
                 <img src="images/HDFC.jpg" style="width:25%;height:150px">
                 </header> 
-                <nav>   
+                 <nav>   
 					<a href="newSA.mm">	Open New Savings Account</a> 
 					<a href="close.mm"> Close Account</a>
 					<a href="withdraw.mm"> Withdraw</a>
 					<a href="deposit.mm"> Deposit</a>
 					<a href="fundTans.mm"> Fund Transfer</a>
 					<a href="curBal.mm"> Get Current Balance</a>
-					<a href="searchForm.mm">Search Account</a>
-					<a href="getAll.mm">Get All Account Details</a>
-					<a href="updateAcc.mm">Update Account</a>
                 </nav> <br><br>
-                
-        <form>
-           <center><h1>Welcome To HDFC Bank</h1> </center>
-        </form>
+				      <h1>Current Balance</h1>
+					<form action="update.mm">
+					<label>Account Number : <input type="number" name="currentBal"></label><br><br>
+					<label><input type="submit" name="submit" value="Submit"></label>
+					</form>
+
         <div><footer id="footer">
                 <marquee>
-                    <img class="images/securebanking.png">
-                    <img class="images/verisign.gif">
+                    <img class="imgfooter" src="images/securebanking.png">
+                    <img class="imgfooter" src="images/verisign.gif">
                     <p>@HDFC All Rights Reserved 2018</p>
                 </marquee>
             </footer></div>
-</body>
+</head>
+<body>
